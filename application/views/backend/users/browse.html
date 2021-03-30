@@ -1,0 +1,21 @@
+{% extends "backend/layouts/layouts.html" %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="md-12">
+            {{ output|raw }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+<script>
+    function delete_row(url, code){
+        if(confirm('確定要刪除嗎？')){
+            $.post(url, function(data){
+                location.reload();
+            })
+        }   
+    }
+</script>
+{% endblock %}

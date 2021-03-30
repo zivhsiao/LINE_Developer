@@ -1,0 +1,48 @@
+{% extends "backend/layouts/layouts.html" %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="md-12">
+            {{ output|raw }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+<script>
+
+    $(function() {
+        var editor = new Editor({
+            element: $('.texteditor')[0]
+        });
+        editor.render();
+    
+        //var editor2 = new Editor({
+        //    element: $('.texteditor')[1]
+        //});
+        //editor2.render();
+ 
+        $('.delete-anchor').on('click', function(){
+            delete_id = $(this).attr('id');
+            if(confirm('確定要刪除圖檔？')){
+                $('.upload-success-url').hide();
+                $('.fileinput-button').show();
+            }
+        })
+    
+        $('#save-and-go-back-button').hide();
+    })
+    
+ 
+    function delete_row(url, code){
+        if(confirm('確定要刪除嗎？')){
+            $.post(url, function(data){
+                location.reload();
+            })
+        }   
+    }
+
+    
+
+</script>
+{% endblock %}

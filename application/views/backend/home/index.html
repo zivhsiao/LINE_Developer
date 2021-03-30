@@ -1,0 +1,17 @@
+{% extends "backend/layouts/layouts.html" %}
+
+{% block content %}
+    <div class="container-fluid">
+        <h1 class="mt-4">歡迎進入</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">
+                歡迎進入
+            </li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ admin_user }}，歡迎您的進入
+            </div>
+        </div>
+    </div>
+{% endblock %}
